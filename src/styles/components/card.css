@@ -44,7 +44,8 @@
 }
 .genre{
     display: flex;
-    gap: 5%;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 .genre span:nth-child(2n){
     padding: 5px;
