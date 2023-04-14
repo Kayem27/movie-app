@@ -17,7 +17,8 @@ const Card = ({ movieData }) => {
     const matchingGenre = genreArray.find((genre) => genre.id === genreId);
     return matchingGenre ? matchingGenre.name : null;
   }
-
+  module.exports=getMovieGenre;
+  
   function formaterDate(date) {
     let dateObj = new Date(date);
     let jour = dateObj.getDate();
@@ -33,6 +34,8 @@ const Card = ({ movieData }) => {
 
     return jour + "/" + mois + "/" + annee;
   }
+
+  module.exports=formaterDate;
 
   if (movieData.backdrop_path) {
     imgURL = "https://image.tmdb.org/t/p/original/"+movieData.backdrop_path;

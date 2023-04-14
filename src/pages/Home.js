@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
 import Logo from "../components/Logo";
-import Filter from "../components/Filter";
 import Card from "../components/Card";
 import axios from "axios";
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const [inputSearch, setInputSearch] = useState("course")
+  const [inputSearch, setInputSearch] = useState("guerre");
 
   useEffect(() => {
     axios(
@@ -20,9 +19,13 @@ const Home = () => {
       <Navigation />
       <Logo />
       <div className="search">
-        <input type="search" onChange={(e) => setInputSearch(e.target.value)} />
+        <input type="search" placeholder="Entrez le nom d'un film" onChange={(e) => setInputSearch(e.target.value)} />
+        <div className="filter">
+            <span>Top 🔼</span>
+            <span>Flop 🔽</span>            
+        </div>
       </div>
-      {/* <Filter /> */}
+      
       <div className="movies">
         {data.map((movie) => (
           <Card key={data.id} movieData={movie} />
